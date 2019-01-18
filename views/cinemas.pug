@@ -1,0 +1,45 @@
+extends master.pug
+
+block content
+    h1 Trouver un cinema
+
+    form#form-search
+
+        .form-group
+            label(for="fauteuil") Fauteuil(s) :
+            select.form-control(name="operation_fauteuils", id="operation_fauteuils")
+                option(selected)
+                option(value="=") Exactement
+                option(value=">") Au moins
+                option(value="<") Au plus
+            input#fauteuils.form-control(name="fauteuils", type="number")
+        
+        .form-group
+            label(for="ecran") Écran(s) :
+            select.form-control(name="operation_ecrans", id="operation_ecrans")
+                option(selected)
+                option(value="=") Exactement
+                option(value=">") Au moins
+                option(value="<") Au plus
+            input#ecrans.form-control(name="ecrans", type="number")
+
+        .form-group
+            label(for="arrondissement") Arrondissement :
+            input.form-control(name="arrondissement", id="arrondissement", type="text", placeholder="e.g. 75018")
+
+        .form-actions
+            button.btn.btn-outline-dark.btn-sm.btn-block(type="submit") Rechercher !
+    br
+    section#results
+        table.table.table-hover.table-dark.table-responsive(border="1")
+            thead
+                tr
+                    th Nom
+                    th Adresse
+                    th Arrondissement
+                    th Fauteuils
+                    th Écrans
+            tbody
+
+    block scripts
+        script(src="js/search.js")

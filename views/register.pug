@@ -1,0 +1,24 @@
+extends master.pug
+
+block content
+
+  .form
+    form.form(method="POST", action="/register")
+      .form-group
+      label(for="firstname") Prénom
+      input.firstname.form-control(type="text", name="firstname" placeholder="Saisissez votre prénom" value=(body && body.firstname))
+      .form-group
+      label(for="lastname") Nom
+      input.lastname.form-control(type="text", name="lastname" placeholder="Saisissez votre  nom" value=(body && body.lastname))
+      .form-group
+      label(for="email") Email
+      input.email.form-control(type="email", name="email" placeholder="Saisissez votre email" value=(body && body.email))
+      .form-group
+      label(for="pass") Mot de passe
+      input.password.form-control(type="password", name="pass" placeholder="Saisissez votre mot de passe")
+      .form-group
+      label(for="pass_confirmation") Confirmation de mot de passe
+      input#confirmPassword.form-control(type="password", name="pass_confirmation" placeholder="Re-saisissez votre mot de passe")
+      br
+      .form-action
+      button.submit.btn.btn-outline-dark.btn-sm.btn-block(type="submit") Valider

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+html(lang="fr")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    title Accueil - OpenCinemas
+    link(rel="stylesheet", href="css/style.css")
+    link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css', integrity='sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS', crossorigin='anonymous')
+    link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.6.3/css/all.css', integrity='sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/', crossorigin='anonymous')
+
+    script(src="js/app.js")
+    block scripts
+
+  body
+    nav.navbar.bg
+      ul
+        img#navbar-logo(src="images/logo.png", alt='logo')
+        li
+            a#navbar-brand(href="/", title="Retourner à l'accueil") OpenCinemas
+        if user
+          li
+            a#search-link(href="/cinemas") Rechercher un cinéma
+          li
+            a#logout-link(href="/logout", title="Accès à la deconnection") Se deconnecter
+
+          p#welcome-user Bienvenue #{user.firstname}
+        else
+          li
+            a#login-link(href="/login", title="Accèder à la page de connexion") Se connecter
+          li
+            a#register-link(href="/register", title="S'inscrire à l'application") S'inscrire
+
+    main.container
+      each messages, kind in flashMessages
+        div(class="alert alert-"+kind+" alert-flash")
+          each message in messages
+            | #{message}
+      block content
+
+    footer
+      h1 

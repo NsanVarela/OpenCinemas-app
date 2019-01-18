@@ -1,0 +1,23 @@
+extends master.pug
+
+block content
+  img#bg-logo(src="http://daremag.de/wp-content/uploads/2014/05/Du-temps-a%CC%80-tuer-800x358.jpg", alt='logo')
+  #index-container
+    h1 OpenCinemas
+    br
+    p#baseline
+      strong 2 heures à tuer ...
+      br
+      br
+      | Recherchez et reservez vos places de cinéma en Île-de-France 
+      | pour optimiser les 2 heures qui sont devant vous.
+      br
+      br
+    p
+      if user
+        a(href="/cinemas")
+          | Cliquez ici pour accéder à la recherche de cinémas
+      else
+          br
+          a#index-link.btn.btn-outline-info.btn-sm(href='/login', title="S'inscrire à l'application", role='button', aria-pressed='true') Cliquez ici pour vous connecter
+
